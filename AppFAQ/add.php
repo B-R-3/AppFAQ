@@ -12,17 +12,24 @@
 <body>
     <nav>
         <div class="logo">
-            <h1><a href="index.php">AppFAQ</a></h1>
+            <h1>AppFAQ</h1>
         </div>
         <ul>
-            <li><a href="register.php">inscription</a></li>
-            <li><a href="login.php">connecter</a></li>
+            <li>home</li>
+            <li>contact</li>
+            <li>connecter</li>
         </ul>
     </nav>
 
     <br>
     <h1>M2L</h1>
-    
+    <h2>Ajouter une question</h2>
+    <form id="formulaire" action="contact.php">
+        <label for="message">message</label> <br>
+        <textarea name="message" id="message" cols="50" rows="10"> Poser une question!</textarea>
+       
+
+    </form>
 
 </body>
 

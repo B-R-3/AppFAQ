@@ -1,11 +1,57 @@
-*{
+* {
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
 }
-.logo
+
+.logo {
+    font-size: 50px;
+    color: rgb(212, 212, 212);
+    list-style: none;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 40px;
+    list-style: none;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    background-color: burlywood;
+}
+
+nav .logo a :hover
 {
-    font-size: 500px;
-    color: black;
+    list-style: none;
+    text-decoration: none;
+}
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    text-decoration: none;
+
+}
+nav ul {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+form {
+
+    width: 175px;
+    background-color: antiquewhite;
+}
+#v
+{
+    background-color: chartreuse;
+}
+#f
+{
+    background-color: rgb(236, 14, 14);
 }
