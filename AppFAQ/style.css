@@ -12,11 +12,14 @@
     text-decoration: none;
 }
 
-h1 {
+h1{
     font-size: 40px;
+}
+h1 a{
     list-style: none;
     text-decoration: none;
 }
+
 
 nav {
     display: flex;
@@ -26,32 +29,40 @@ nav {
     background-color: burlywood;
 }
 
-nav .logo a :hover
-{
+nav .logo a :hover {
     list-style: none;
     text-decoration: none;
 }
+
 nav ul li {
     display: inline-block;
     list-style: none;
     text-decoration: none;
 
 }
+
 nav ul {
     display: flex;
     align-items: center;
     padding-right: 20px;
 }
+
 form {
 
     width: 175px;
     background-color: antiquewhite;
 }
-#v
-{
-    background-color: chartreuse;
+
+.button input {
+    color: #fff;
+    height: 1.5em;
+    width: 6.4em;
 }
-#f
-{
-    background-color: rgb(236, 14, 14);
+
+#v {
+    background-color: rgb(68, 136, 0);
+}
+
+#f {
+    background-color: rgb(146, 5, 5);
 }

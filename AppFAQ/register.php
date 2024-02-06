@@ -22,7 +22,7 @@
 
     <br>
     <h1>M2L</h1>
-    <h2>inscription</h2><br>
+    <h2>Inscription</h2><br>
     <form id="formulaire" action="contact.php">
         <label for="nom">Nom</label> <br>
         <input type="text" id="nom"> <br>
@@ -51,11 +51,10 @@
             <option>Toutes les ligues</option>
 
         </select><br><br>
-        <input type="button" id="v" value="Valide">
-
-
-        <input type="button" id="f" value="Annule"> <br>
-
+        <div class="button">
+        <a href="add.php"><input type="button" id="v" value="Enregistrer"></a>
+        <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+        </div>
     </form>
 
 </body>

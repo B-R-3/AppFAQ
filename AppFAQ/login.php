@@ -15,9 +15,7 @@
             <h1>AppFAQ</h1>
         </div>
         <ul>
-            <li>home</li>
-            <li>contact</li>
-            <li>connecter</li>
+        <li><a href="register.php">s'inscrire</a></li>
         </ul>
     </nav>
 
@@ -32,13 +30,10 @@
         <label for="Mot de passe">Mot de passe</label> <br>
         <input type="password" id="Mot de passe"> <br><br><br>
 
-
-        <a href="add.php"><input type="button" id="v" value="Valide"></a>
-
-
-
-
-        <a href="index.php"><input type="button" id="f" value="Annule"> <br></a>
+        <div class="button">
+            <a href="add.php"><input type="button" id="v" value="Enregistrer"></a>
+            <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+        </div>
     </form>
 
     <p></p>
