@@ -15,9 +15,8 @@
             <h1>AppFAQ</h1>
         </div>
         <ul>
-            <li>home</li>
-            <li>contact</li>
-            <li>connecter</li>
+            <li><a href="deco.php">déconnection</a></li>
+          
         </ul>
     </nav>
 

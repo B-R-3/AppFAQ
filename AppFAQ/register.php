@@ -43,8 +43,6 @@
 
         <h3> choisissez une ligue</h3>
         <select name="ligue">
-
-            <option>Football </option>
             <option selected="yes">Football</option>
             <option>Volley</option>
             <option>Basket-ball</option>
@@ -52,7 +50,7 @@
 
         </select><br><br>
         <div class="button">
-        <a href="add.php"><input type="button" id="v" value="Enregistrer"></a>
+        <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
         <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
         </div>
     </form>

@@ -15,9 +15,8 @@
             <h1>AppFAQ</h1>
         </div>
         <ul>
-            <li>home</li>
-            <li>contact</li>
-            <li>connecter</li>
+            <li><a href="deco.php">déconnection</a></li>
+
         </ul>
     </nav>
 
@@ -27,7 +26,7 @@
     <form id="formulaire" action="contact.php">
         <label for="message">message</label> <br>
         <textarea name="message" id="message" cols="50" rows="10"> Poser une question!</textarea>
-       
+
 
     </form>
 

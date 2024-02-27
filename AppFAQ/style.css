@@ -4,7 +4,10 @@
     list-style: none;
     text-decoration: none;
 }
+a:link{
+    color: #a84747;
 
+}
 .logo {
     font-size: 50px;
     color: rgb(212, 212, 212);
@@ -14,10 +17,6 @@
 
 h1{
     font-size: 40px;
-}
-h1 a{
-    list-style: none;
-    text-decoration: none;
 }
 
 
@@ -29,15 +28,11 @@ nav {
     background-color: burlywood;
 }
 
-nav .logo a :hover {
-    list-style: none;
-    text-decoration: none;
-}
 
 nav ul li {
     display: inline-block;
-    list-style: none;
-    text-decoration: none;
+    color: azure;
+   
 
 }
 
@@ -45,6 +40,7 @@ nav ul {
     display: flex;
     align-items: center;
     padding-right: 20px;
+   
 }
 
 form {
@@ -66,3 +62,11 @@ form {
 #f {
     background-color: rgb(146, 5, 5);
 }
+table{
+   
+    border: 1px solid black;
+}
+th td{
+ background-color: aquamarine;
+}
+    

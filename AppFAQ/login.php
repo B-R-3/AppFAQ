@@ -23,7 +23,7 @@
     <h1>M2L</h1>
     <h2>Connexion</h2>
     <form id="formulaire" action="contact.php">
-        <label for="pseudo">pseudo</label> <br>
+        <label for="pseudo">Identifiant</label> <br>
         <input type="text" id="pseudo"> <br>
 
 
@@ -31,7 +31,7 @@
         <input type="password" id="Mot de passe"> <br><br><br>
 
         <div class="button">
-            <a href="add.php"><input type="button" id="v" value="Enregistrer"></a>
+            <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
             <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
         </div>
     </form>
