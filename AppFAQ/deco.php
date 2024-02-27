@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1> vous venez de vous déconnecter </h1>
-   <a href="index.php"> <h3>revenir à la page d'acceuil</h3></a>
+   <a href="index.php"> <h3>Revenir à la page d'acceuil</h3></a>
     
 </body>
 </html>

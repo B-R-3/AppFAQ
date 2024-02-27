@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <title>AppFAQ</title>
 </head>
+<style>
+
+</style>
 
 <body>
     <nav>
@@ -15,14 +18,17 @@
             <h1><a href="index.php">AppFAQ</a></h1>
         </div>
         <ul>
-            <li><a href="register.php">inscription</a></li>
-            <li><a href="login.php">connecter</a></li>
+            <li><a href="register.php">Inscription</a></li>
+            <li><a href="login.php">Connecter</a></li>
         </ul>
     </nav>
 
     <br>
-    <h1>M2L</h1>
-    
+    <div class="m2">
+        <p>La brave F.A.Q de la maison des ligues</p>
+        <h1>M2L</h1>
+    </div>
+
 
 </body>
 

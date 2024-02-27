@@ -9,13 +9,14 @@
     <title>AppFAQ</title>
 </head>
 
+
 <body>
     <nav>
         <div class="logo">
-            <h1>AppFAQ</h1>
+            <h1><a href="index.php">AppFAQ</a></h1>
         </div>
         <ul>
-        <li><a href="register.php">s'inscrire</a></li>
+            <li><a href="register.php">s'inscrire</a></li>
         </ul>
     </nav>
 

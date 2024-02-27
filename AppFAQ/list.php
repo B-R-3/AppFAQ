@@ -11,11 +11,11 @@
 
 <body>
     <nav>
-        <div class="logo">
-            <h1>AppFAQ</h1>
+    <div class="logo">
+            <h1><a href="list.php">AppFAQ</a></h1>
         </div>
         <ul>
-            <li><a href="deco.php">déconnection</a></li>
+            <li><a href="deco.php">Déconnection</a></li>
            
         </ul>
     </nav>
@@ -23,7 +23,7 @@
     <br>
     <h1>M2L</h1>
 
-    <table border="1">
+   <div class="table"><table>
         <tr>
                 <th>nr</th>
                 <th>Auteur</th>
@@ -39,7 +39,30 @@
                 <td>Bien sur que oui</td>
                 <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
             </tr>
+            <tr>
+                <td>1</td>
+                <td>jef</td>
+                <td>Est ce que le ballon est rond ?</td>
+                <td>Bien sur que oui</td>
+                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>jef</td>
+                <td>Est ce que le ballon est rond ?</td>
+                <td>Bien sur que oui</td>
+                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>jef</td>
+                <td>Est ce que le ballon est rond ?</td>
+                <td>Bien sur que oui</td>
+                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
+            </tr>
     </table>
+    </div>
+    
             
 
         </select>
