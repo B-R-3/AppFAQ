@@ -13,22 +13,24 @@
 </style>
 
 <body>
-    <nav>
-        <div class="logo">
-            <h1><a href="index.php">AppFAQ</a></h1>
-        </div>
-        <ul>
-            <li><a href="register.php">Inscription</a></li>
-            <li><a href="login.php">Connecter</a></li>
-        </ul>
-    </nav>
+
+
 
     <br>
-    <div class="m2">
-        <p>La brave F.A.Q de la maison des ligues</p>
-        <h1>M2L</h1>
-    </div>
+    <div class="acc">
+        <div class="m2">
+            <h1>AppFAQ</h1>
+        </div>
 
+
+
+
+        <div class="click">
+            <a href="register.php"><button class="but" type="button">Inscription</button></a>
+
+            <a href="login.php"><button class="but" type="button">Connexion</button></a>
+        </div>
+    </div>
 
 </body>
 

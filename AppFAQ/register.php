@@ -23,8 +23,8 @@
     <br>
 
     <div class="text">
-        <h1>M2L</h1>
-        <h2>Inscription</h2><br>
+        <h1>INSC</h1>
+        
     </div>
     <div class="container">
         <form id="formulaire" action="contact.php">
