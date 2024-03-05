@@ -21,7 +21,7 @@
     </nav>
 
     <br>
-    <h1>M2L</h1>
+    <h1>Liste des messages</h1><br>
 
    <div class="table"><table>
         <tr>

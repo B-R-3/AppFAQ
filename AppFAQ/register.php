@@ -23,39 +23,42 @@
     <br>
 
     <div class="text">
-        <h1>INSC</h1>
         
+
     </div>
     <div class="container">
         <form id="formulaire" action="contact.php">
-            <label for="nom">Nom</label> <br>
-            <input type="text" id="nom"> <br>
+            <div class="cont">
+            <h1>Inscription</h1>
+                <label for="nom">Nom</label><br>
+                <input type="text" id="nom" placeholder="Nom"> <br>
 
 
-            <label for="prenom">Prenom</label> <br>
-            <input type="text" id="prenom"> <br>
+                <label for="prenom">Prenom</label> <br>
+                <input type="text" id="prenom" placeholder="Prenom"> <br>
 
 
-            <label for="password">Mot de passe</label> <br>
-            <input type="password" id="password"> <br>
+                <label for="password">Mot de passe</label> <br>
+                <input type="password" id="password" placeholder="******"> <br>
 
-            <label for="nom">E-mail</label> <br>
-            <input type="email" id="e-mail"> <br>
+                <label for="nom">E-mail</label> <br>
+                <input type="email" id="e-mail" placeholder="abc@exemple.com"> <br>
 
-            <label for="pseudo">Pseudo</label> <br>
-            <input type="text" id="pseudo"> <br>
+                <label for="pseudo">Pseudo</label> <br>
+                <input type="text" id="pseudo" placeholder="Pseudo"> <br>
 
-            <h3> choisissez une ligue</h3>
-            <select name="ligue">
-                <option selected="yes">Football</option>
-                <option>Volley</option>
-                <option>Basket-ball</option>
-                <option>Toutes les ligues</option>
+                <h3> choisissez une ligue</h3>
+                <select name="ligue">
+                    <option selected="yes">Football</option>
+                    <option>Volley</option>
+                    <option>Basket-ball</option>
+                    <option>Toutes les ligues</option>
 
-            </select><br><br>
-            <div class="button">
-                <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
-                <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                </select><br><br>
+                <div class="button">
+                    <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
+                    <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                </div>
             </div>
         </form>
     </div>

@@ -24,8 +24,7 @@ h1 {
 
 }
 
-.m2
-h1 {
+.m2 h1 {
     font-size: 150px;
     height: 1.5em;
     color: rgb(59, 59, 59);
@@ -52,7 +51,7 @@ h1 {
     text-decoration: underline;
 }
 
-.button:hover {
+.but:hover {
     transform: translateY(-20px);
     transition: 1.5s;
     color: #650404;
@@ -70,12 +69,13 @@ a:link {
 }
 
 a:visited {
-    color: #fff;
+    color: rgb(59, 59, 59);
     border-bottom: 1px solid #b3b3b3;
 }
 
 a:hover {
-    color: #000;
+    color: #928080;
+    transition: .5s;
     border-bottom: 1px solid #000099;
 }
 
@@ -88,7 +88,7 @@ nav {
     justify-content: space-between;
     height: 50px;
     width: 100%;
-    background-color: rgb(249, 237, 102);
+    background-color: rgb(243, 243, 174);
 }
 
 nav ul li {
@@ -111,29 +111,48 @@ nav ul {
 
 .text {
     display: flex;
+    height: 145px;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap
 }
-
-form {
-
-    border-radius: 10%;
-    width: 225px;
-    height: 320px;
-    background-color: antiquewhite;
+.cont{
+    
+  
 }
+form {
+    display: flex;
+    align-items: center;
+    transition: 1s;
+    opacity: 0.95;
+    justify-content: center;
+    border-radius: 10%;
+    width: 305px;
+    height: 400px;
+    background-color: rgb(243, 243, 174);
+    
+}
+label, input{
+   margin: auto;
 
+}
 .button input {
+    border-radius: 35%;
     color: #fff;
     height: 1.5em;
     width: 6.4em;
 }
 
 #v {
-    background-color: rgb(68, 136, 0);
+    background-color: rgb(9, 162, 213);
+    border-radius: 35%;
+    
 }
 
 #f {
-    background-color: rgb(146, 5, 5);
+    background-color: rgb(249, 115, 12);
+    border-radius: 35%;
+   
 }
 
 table,

@@ -21,20 +21,26 @@
     </nav>
 
     <br>
-    <h1>M2L</h1>
-    <h2>Connexion</h2>
-    <form id="formulaire" action="contact.php">
-        <label for="pseudo">Identifiant</label> <br>
-        <input type="text" id="pseudo"> <br>
+    <div class="text">
+
+    </div>
+    <div class="container">
+        <form id="formulaire" action="contact.php">
+            <div class="cont">
+                <h1>Connexion</h1>
+                <label for="pseudo">Identifiant</label> <br>
+                <input type="text" id="pseudo" placeholder="identifiant"> <br>
 
 
-        <label for="Mot de passe">Mot de passe</label> <br>
-        <input type="password" id="Mot de passe"> <br><br><br>
+                <label for="Mot de passe">Mot de passe</label> <br>
+                <input type="password" id="Mot de passe" placeholder="password"> <br><br><br>
 
-        <div class="button">
-            <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
-            <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
-        </div>
+                <div class="button">
+                    <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
+                    <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                </div>
+            </div>
+    </div>
     </form>
 
     <p></p>
