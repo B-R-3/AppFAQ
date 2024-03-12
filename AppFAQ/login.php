@@ -17,10 +17,12 @@ if ($submit) {
     $sql = "select * from user where pseudo=:pseudo and mdp=:mdp";
     try {
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(
-            ':pseudo' => $pseudo,
-            ':mdp' => $mdp
-        ));
+        $sth->execute(
+            array(
+                ':pseudo' => $pseudo,
+                ':mdp' => $mdp
+            )
+        );
         $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
@@ -58,7 +60,7 @@ if ($submit) {
     </nav>
 
     <br>
-    <div class="contaiiner">
+    <div class="bigcontainer">
 
 
         <div class="container">
@@ -73,7 +75,7 @@ if ($submit) {
                     <input type="password" id="mdp" name="mdp" placeholder="password"> <br><br><br>
 
                     <div class="button">
-                    <p><input type="submit" id="v" name="submit" value="Connexion" /></p>
+                        <p><input type="submit" id="v" name="submit" value="Connexion" /></p>
                         <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
                     </div>
                 </div>

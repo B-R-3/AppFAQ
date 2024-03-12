@@ -13,7 +13,7 @@ if (!isset($_SESSION['pseudo'])) {
 $dbh = connexion();
 
 // Liste des utilisateurs
-$sql = "select * from faq";
+$sql = "select pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
 try {
     $sth = $dbh->prepare($sql);
     $sth->execute();
@@ -49,27 +49,31 @@ try {
     <br>
     <h1 id="list"> Liste des messages</h1><br>
 
-    </div>
     <div class="question-table">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Question</th>
-                <th>Réponse</th>
-                <th>datequestion</th>
-                <th>dateréponse</th>
-                <th>iduser</th>
-            </tr>
-            <?php
-            foreach ($rows as $row) {
-                echo "<tr><td>" . $row['idfaq'] . '</td><td>' . $row['question'] . '</td><td>' . $row['reponse'] . '</td><td>' . $row['datequestion'] . '</td><td>' . $row['datereponse'] . '</td><td>' . $row['iduser'] . '</td></tr>';
-            }
-            ?>
-        </table>
+        <div class="header">Auteur</div>
+        <div class="header">Question</div>
+        <div class="header">Réponse</div>
+        <div class="header">Date Reponse</div>
+        <div class="header">Date question</div>
+        <div class="header">Actions</div>
+
+        <?php
+        // Affiche les données récupérées dans la table
+        
+        foreach ($rows as $row) {
+            echo '<div class="data">' . $row["pseudo"] . '</div>';
+            echo '<div class="data">' . $row["question"] . '</div>';
+            echo '<div class="data">' . $row["reponse"] . '</div>';
+            echo '<div class="data">' . $row["datequestion"] . '</div>';
+            echo '<div class="data">' . $row["datereponse"] . '</div>';
+            echo '<div class="data"> <a href="edit.php">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>';
+        }
+
+
+        ?>
 
 
 
-        <!-- Ajoutez autant de lignes de données que nécessaire -->
     </div>
 
 

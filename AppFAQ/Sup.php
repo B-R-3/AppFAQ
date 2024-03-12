@@ -12,7 +12,7 @@
 <body>
     <nav>
         <div class="logo">
-            <h1>AppFAQ (admin)</h1>    
+            <h1>AppFAQ (admin)</h1>
         </div>
         <ul>
             <li><a href="deco.php">Déconnexion</a></li>

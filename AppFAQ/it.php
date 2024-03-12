@@ -16,7 +16,7 @@
         </div>
         <ul>
             <li><a href="deco.php">Déconnexion</a></li>
-          
+
         </ul>
     </nav>
 
@@ -25,7 +25,7 @@
     <form id="formulaire" action="contact.php">
         <label for="nom">Nom</label> <br>
         <input type="text" id="nom"> <br>
-       
+
 
         <label for="nom">Prenom</label> <br>
         <input type="text" id="prenom"> <br>
@@ -35,7 +35,7 @@
 
 
         <select name="ligue">
-        <label for="nom">Ma ligue</label> <br>
+            <label for="nom">Ma ligue</label> <br>
 
             <option>ligue </option>
             <option selected="yes">Bucharest</option>

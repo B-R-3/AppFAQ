@@ -17,17 +17,19 @@ if ($submit) {
     $sql = "insert into user(pseudo,mdp,mail,idusertype,idligue) values (:pseudo,:mdp,:mail,:idusertype,:idligue)";
     try {
         $sth = $dbh->prepare($sql);
-        $sth->execute(array(
-      ':pseudo' => $pseudo,
-      ':mdp' => $mdp,
-      ':mail' => $mail,
-      ':idusertype' => 1,
-      ':idligue' => $ligue
+        $sth->execute(
+            array(
+                ':pseudo' => $pseudo,
+                ':mdp' => $mdp,
+                ':mail' => $mail,
+                ':idusertype' => 1,
+                ':idligue' => $ligue
 
-    ));
+            )
+        );
 
     } catch (PDOException $ex) {
-        die("Erreur lors de la requête SQL : ".$ex->getMessage());
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
 }
 ?>
@@ -57,40 +59,40 @@ if ($submit) {
 
     <br>
 
-    <div class="contaiiner">
-        
+    <div class="bigcontainer">
 
-   
-    <div class="container">
-        <form id="formulaire" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <div class="cont">
-            <h1 id ="inscription">Inscription</h1>
 
-                <label for="pseudo">Pseudo</label> <br>
-                <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"> <br>
 
-                <label for="mdp">Mot de passe</label> <br>
-                <input type="password" id="mdp" name="mdp" placeholder="******"> <br>
+        <div class="container">
+            <form id="formulaire" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="cont">
+                    <h1 id="inscription">Inscription</h1>
 
-                <label for="email">E-mail</label> <br>
-                <input type="email" id="e-mail" name="mail" placeholder="abc@exemple.com"> <br>
+                    <label for="pseudo">Pseudo</label> <br>
+                    <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"> <br>
 
-               
-                <h3> choisissez une ligue</h3>
-                <select name="ligue">
-                    <option selected="yes" value="1">Football</option>
-                    <option value="3" >Volley</option>
-                    <option value="2">Basket-ball</option>
-                    <option value="4">Toutes les ligues</option>
+                    <label for="mdp">Mot de passe</label> <br>
+                    <input type="password" id="mdp" name="mdp" placeholder="******"> <br>
 
-                </select><br><br>
-                <div class="button">
-                    <p><input type="submit" name="submit" id="v" value="Enregistrer" /></p>
-                    <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                    <label for="email">E-mail</label> <br>
+                    <input type="email" id="e-mail" name="mail" placeholder="abc@exemple.com"> <br>
+
+
+                    <h3> choisissez une ligue</h3>
+                    <select name="ligue">
+                        <option selected="yes" value="1">Football</option>
+                        <option value="3">Volley</option>
+                        <option value="2">Basket-ball</option>
+                        <option value="4">Toutes les ligues</option>
+
+                    </select><br><br>
+                    <div class="button">
+                        <p><input type="submit" name="submit" id="v" value="Enregistrer" /></p>
+                        <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 
 </body>

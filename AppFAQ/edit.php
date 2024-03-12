@@ -21,20 +21,20 @@
     </nav>
 
     <br>
-    <div class="contaiiner">
+    <div class="bigcontainer">
 
-    <div class="container">
-        <h1 id="tail">Formulaire de message</h1>
-        <form action="#" method="post">
-            <input type="text" name="nom" placeholder="Votre nom">
-            <textarea name="message" placeholder="Votre message"></textarea>
+        <div class="container">
+            <h1 id="tail">Formulaire de message</h1>
+            <form action="#" method="post">
+                <input type="text" name="nom" placeholder="Votre nom">
+                <textarea name="message" placeholder="Votre message"></textarea>
 
-            <div class="button-container">
-                <button type="submit"><a href="list.php">envoyer</a></button>
-                <button type="button"><a href="list.php">Retour</a></button>
-            </div>
-        </form>
-    </div>
+                <div class="button-container">
+                    <button type="submit"><a href="list.php">envoyer</a></button>
+                    <button type="button"><a href="list.php">Retour</a></button>
+                </div>
+            </form>
+        </div>
     </div>
 
 
