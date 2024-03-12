@@ -1,3 +1,40 @@
+<?php
+include "fonction.inc.php";
+session_start();
+
+// Connexion à la base de données
+$dbh = connexion();
+
+$message = "";
+
+// Récupère le contenu du formulaire
+$pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
+$mdp = isset($_POST['mdp']) ? $_POST['mdp'] : '';
+$submit = isset($_POST['submit']);
+
+// Vérifie le user
+if ($submit) {
+    $sql = "select * from user where pseudo=:pseudo and mdp=:mdp";
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute(array(
+            ':pseudo' => $pseudo,
+            ':mdp' => $mdp
+        ));
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
+    if (count($rows) == 1) {
+        $_SESSION['pseudo'] = $pseudo;
+        header("Location: list.php");
+        exit();
+    } else {
+        $message = "pseudo et/ou mdp invalide";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,24 +60,24 @@
     <br>
     <div class="contaiiner">
 
-    
-    <div class="container">
-        <form id="formulaire" action="contact.php">
-            <div class="cont">
-                <h1>Connexion</h1>
-                <label for="pseudo">Identifiant</label> <br>
-                <input type="text" id="pseudo" placeholder="identifiant"> <br>
+
+        <div class="container">
+            <form id="formulaire" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                <div class="cont">
+                    <h1>Connexion</h1>
+                    <label for="pseudo">Identifiant</label> <br>
+                    <input type="text" id="pseudo" name="pseudo" placeholder="identifiant"> <br>
 
 
-                <label for="Mot de passe">Mot de passe</label> <br>
-                <input type="password" id="Mot de passe" placeholder="password"> <br><br><br>
+                    <label for="mdp">mot de passe</label> <br>
+                    <input type="password" id="mdp" name="mdp" placeholder="password"> <br><br><br>
 
-                <div class="button">
-                    <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
-                    <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                    <div class="button">
+                    <p><input type="submit" id="v" name="submit" value="Connexion" /></p>
+                        <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                    </div>
                 </div>
-            </div>
-    </div>
+        </div>
     </div>
     </form>
 
