@@ -15,54 +15,58 @@
             <h1><a href="list.php">AppFAQ</a></h1>
         </div>
         <ul>
-            <li><a href="deco.php">Déconnection</a></li>
+            <li><a href="deco.php">Déconnexion</a></li>
            
         </ul>
     </nav>
 
     <br>
-    <h1>Liste des messages</h1><br>
+    <h1 id ="list"> Liste des messages</h1><br>
 
-   <div class="table"><table>
-        <tr>
-                <th>nr</th>
-                <th>Auteur</th>
-                <th>Question</th>
-                <th>Réponse</th>
-                <th>Actions</th>
-            </tr>
-
-            <tr>
-                <td>1</td>
-                <td>jef</td>
-                <td>Est ce que le ballon est rond ?</td>
-                <td>Bien sur que oui</td>
-                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>jef</td>
-                <td>Est ce que le ballon est rond ?</td>
-                <td>Bien sur que oui</td>
-                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>jef</td>
-                <td>Est ce que le ballon est rond ?</td>
-                <td>Bien sur que oui</td>
-                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>jef</td>
-                <td>Est ce que le ballon est rond ?</td>
-                <td>Bien sur que oui</td>
-                <td><a href="edit.php">Modifier</a> <a href="Sup.php">Supprimer</a></td>
-            </tr>
-    </table>
     </div>
+    <div class="question-table">
+        <div class="header">Auteur</div>
+        <div class="header">Question</div>
+        <div class="header">Réponse</div>
+        <div class="header">Date</div>
+        <div class="header">Heure</div>
+        <div class="header">Actions</div>
+
+        <div class="data, color">John Doe</div>
+        <div class="data, color">Quelle est la capitale de la France ?</div>
+        <div class="data, color">Paris</div>
+        <div class="data, color">2024-03-11</div>
+        <div class="data, color">14:30</div>
+        <div class="data, color"> <a href="edit.php">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>
+
+        <div class="data">John Doe</div>
+        <div class="data">Quelle est la capitale de la France ?</div>
+        <div class="data">Paris</div>
+        <div class="data">2024-03-11</div>
+        <div class="data">14:30</div>
+        <div class="data"> <a href="edit.php">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>
+
+
+        <div class="data, color">John Doe</div>
+        <div class="data, color">Quelle est la capitale de la France ?</div>
+        <div class="data, color">Paris</div>
+        <div class="data, color">2024-03-11</div>
+        <div class="data, color">14:30</div>
+        <div class="data, color"> <a href="edit.php">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>
+
     
+        <div class="data">John Doe</div>
+        <div class="data">Quelle est la capitale de la France ?</div>
+        <div class="data">Paris</div>
+        <div class="data">2024-03-11</div>
+        <div class="data">14:30</div>
+        <div class="data"> <a href="edit.php">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>
+
+
+
+        <!-- Ajoutez autant de lignes de données que nécessaire -->
+    </div>
+
             
 
         </select>

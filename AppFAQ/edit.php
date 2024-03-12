@@ -15,31 +15,27 @@
             <h1>AppFAQ (admin)</h1>
         </div>
         <ul>
-            <li><a href="deco.php">Déconnection</a></li>
+            <li><a href="deco.php">Déconnexion</a></li>
 
         </ul>
     </nav>
 
     <br>
-    <h1>M2L</h1>
+    <div class="contaiiner">
 
-    <form id="formulaire" action="contact.php">
-        <label for="message">Question</label> <br>
-        <textarea name="message" id="message" cols="50" rows="10"> Est ce que le ballon est rond ?</textarea>
+    <div class="container">
+        <h1 id="tail">Formulaire de message</h1>
+        <form action="#" method="post">
+            <input type="text" name="nom" placeholder="Votre nom">
+            <textarea name="message" placeholder="Votre message"></textarea>
 
-
-    </form>
-
-
-    <form id="formulaire" action="contact.php">
-        <label for="message">Réponse</label> <br>
-        <textarea name="message" id="message" cols="50" rows="10"> Bien sur que oui</textarea>
-
-
-    </form>
-    <div class="button">
-        <a href="list.php"><input type="button" id="v" value="Enregistrer"></a>
-        <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a>
+            <div class="button-container">
+                <button type="submit"><a href="list.php">envoyer</a></button>
+                <button type="button"><a href="list.php">Retour</a></button>
+            </div>
+        </form>
+    </div>
+    </div>
 
 
 </body>

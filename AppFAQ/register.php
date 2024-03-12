@@ -22,14 +22,14 @@
 
     <br>
 
-    <div class="text">
+    <div class="contaiiner">
         
 
-    </div>
+   
     <div class="container">
         <form id="formulaire" action="contact.php">
             <div class="cont">
-            <h1>Inscription</h1>
+            <h1 id ="inscription">Inscription</h1>
                 <label for="nom">Nom</label><br>
                 <input type="text" id="nom" placeholder="Nom"> <br>
 
@@ -61,6 +61,7 @@
                 </div>
             </div>
         </form>
+    </div>
     </div>
 
 </body>

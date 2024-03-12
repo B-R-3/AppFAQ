@@ -21,9 +21,9 @@
     </nav>
 
     <br>
-    <div class="text">
+    <div class="contaiiner">
 
-    </div>
+    
     <div class="container">
         <form id="formulaire" action="contact.php">
             <div class="cont">
@@ -40,6 +40,7 @@
                     <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
                 </div>
             </div>
+    </div>
     </div>
     </form>
 
