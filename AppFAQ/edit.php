@@ -24,10 +24,9 @@
     <div class="bigcontainer">
 
         <div class="container">
-            <h1 id="tail">Formulaire de message</h1>
+            <h1 id="tail">Formulaire de Question</h1>
             <form action="#" method="post">
-                <input type="text" name="nom" placeholder="Votre nom">
-                <textarea name="message" placeholder="Votre message"></textarea>
+                <textarea name="message" placeholder="Votre question"></textarea>
 
                 <div class="button-container">
                     <button type="submit"><a href="list.php">envoyer</a></button>

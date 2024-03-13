@@ -5,6 +5,7 @@ session_start();
 // Connexion à la base de données
 $dbh = connexion();
 
+$message = "";
 // Récupère le contenu du formulaire
 $pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
 $mdp = isset($_POST['mdp']) ? $_POST['mdp'] : '';
@@ -14,6 +15,7 @@ $submit = isset($_POST['submit']);
 
 // Ajoute le user
 if ($submit) {
+    if ($pseudo == !null && $mdp == !null && $mail == !null ){
     $sql = "insert into user(pseudo,mdp,mail,idusertype,idligue) values (:pseudo,:mdp,:mail,:idusertype,:idligue)";
     try {
         $sth = $dbh->prepare($sql);
@@ -31,6 +33,10 @@ if ($submit) {
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
+}else {
+    $message = "veuillez remplir tous les champs";
+    
+}
 }
 ?>
 
@@ -89,6 +95,9 @@ if ($submit) {
                     <div class="button">
                         <p><input type="submit" name="submit" id="v" value="Enregistrer" /></p>
                         <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                        <?php
+                         echo $message = "veuillez remplir tous les champs";
+                        ?>
                     </div>
                 </div>
             </form>
