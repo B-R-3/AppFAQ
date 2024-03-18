@@ -15,9 +15,13 @@ Ce projet a vu le jour le moi de fevrier et doit être bouclé pour le 26 mars.
 
 
 AppFaq est réalisé par trois grands BRAVES maître en la matière j'ai nommé:
+
 -CACHOUX Adrien
+
 -ROQUES Alexandre
+
 -MOLINA SERNA Brandon
+
 Ce projet contient des fichier .php, .css et .jpg
 
 
