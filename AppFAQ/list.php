@@ -66,7 +66,7 @@ try {
             echo '<div class="data">' . $row["reponse"] . '</div>';
             echo '<div class="data">' . $row["datequestion"] . '</div>';
             echo '<div class="data">' . $row["datereponse"] . '</div>';
-            echo '<div class="data"> <a href="edit.php?id_station='.$row['iduser'].'">MODIFIER</a>  <a href="Sup.php">SUPPRIMER</a></div>';
+            echo '<div class="data"> <a href="edit.php?id_user='.$row['iduser'].'">MODIFIER</a>  <a href="Sup.php?id_user='.$row['iduser'].'">SUPPRIMER</a></div>';
         }
 
 
