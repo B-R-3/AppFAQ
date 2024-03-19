@@ -15,28 +15,26 @@ $submit = isset($_POST['submit']);
 
 // Ajoute le user
 if ($submit) {
-    if ($pseudo == !null && $mdp == !null && $mail == !null ){
-    $sql = "insert into user(pseudo,mdp,mail,idusertype,idligue) values (:pseudo,:mdp,:mail,:idusertype,:idligue)";
-    try {
-        $sth = $dbh->prepare($sql);
-        $sth->execute(
-            array(
-                ':pseudo' => $pseudo,
-                ':mdp' => $mdp,
-                ':mail' => $mail,
-                ':idusertype' => 1,
-                ':idligue' => $ligue
+    if ($pseudo == !null && $mdp == !null && $mail == !null) {
+        $sql = "insert into user(pseudo,mdp,mail,idusertype,idligue) values (:pseudo,:mdp,:mail,:idusertype,:idligue)";
+        try {
+            $sth = $dbh->prepare($sql);
+            $sth->execute(
+                array(
+                    ':pseudo' => $pseudo,
+                    ':mdp' => $mdp,
+                    ':mail' => $mail,
+                    ':idusertype' => 1,
+                    ':idligue' => $ligue
 
-            )
-        );
-
-    } catch (PDOException $ex) {
-        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+                )
+            );
+        } catch (PDOException $ex) {
+            die("Erreur lors de la requête SQL : " . $ex->getMessage());
+        }
+    } else {
+        $message = "veuillez remplir tous les champs";
     }
-}else {
-    $message = "veuillez remplir tous les champs";
-    
-}
 }
 ?>
 
@@ -96,7 +94,7 @@ if ($submit) {
                         <p><input type="submit" name="submit" id="v" value="Enregistrer" /></p>
                         <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
                         <?php
-                         echo $message = "veuillez remplir tous les champs";
+                        echo $message = "veuillez remplir tous les champs";
                         ?>
                     </div>
                 </div>
