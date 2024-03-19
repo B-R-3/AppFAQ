@@ -2,35 +2,45 @@
 include "fonction.inc.php";
 session_start();
 
+
 // Connexion à la base de données
 $dbh = connexion();
 
 $message = "";
+
+// Récupère l'ID passé dans l'URL 
+$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
+
 
 // Récupère le contenu du formulaire
 $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $question = isset($_POST['question']) ? $_POST['question'] : '';
 $submit = isset($_POST['submit']);
 
+$sql = "select * from faq where idfaq=:idfaq";
+try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute(array(':idfaq' => $id_faq));
+    $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $ex) {
+    die("Erreur lors de la requête SQL : " . $ex->getMessage());
+}
+
+
 // Vérifie le user
 if ($submit) {
-    $sql = "delete from faq where question=:question and reponse=:reponse";
+    $sql = "delete from faq where  idfaq=:idfaq";
     try {
         $sth = $dbh->prepare($sql);
         $sth->execute(array(
-            ':question'=>$question,
-            ':reponse'=>$reponse
-    ));
+            ':idfaq' => $id_faq
+        ));
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
+    header("Location: list.php");
 }
 ?>
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -57,24 +67,33 @@ if ($submit) {
     <br>
     <h1>M2L</h1>
 
-    <form id="formulaire" action="contact.php">
-        <label for="question">Question</label> <br>
-        <textarea name="question" id="question" cols="50" rows="10"> Est ce que le ballon est rond ?</textarea>
+    <div class="question-table2">
+        <div class="header">Question</div>
+        <div class="header">Réponse</div>
+        <div class="header">Date Reponse</div>
+        <div class="header">Date question</div>
+
+        <?php
+        // Affiche les données récupérées dans la table
+        foreach ($rows as $row) {
+            echo '<div class="data">' . $row["question"] . '</div>';
+            echo '<div class="data">' . $row["reponse"] . '</div>';
+            echo '<div class="data">' . $row["datequestion"] . '</div>';
+            echo '<div class="data">' . $row["datereponse"] . '</div>';
+        }
 
 
+        ?>
+
+
+
+    </div>
+    <form action="<?php echo $_SERVER['PHP_SELF']."?id_faq=".$id_faq; ?>" method="post">
+        <div class="button">
+            <p><input type="submit" id="v" name="submit" value="Supprimer" />
+                <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a>
+            </p>
     </form>
-
-
-    <form id="formulaire" action="contact.php">
-        <label for="reponse">Réponse</label> <br>
-        <textarea name="reponse" id="reponse" cols="50" rows="10"> Bien sur que oui</textarea>
-
-
-    </form>
-    <div class="button">
-        <p><input type="submit" id="v" name="submit" value="Supprimer" />
-        <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a></p>
-
 
 
 </body>
