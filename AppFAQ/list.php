@@ -13,7 +13,7 @@ if (!isset($_SESSION['pseudo'])) {
 $dbh = connexion();
 
 // Liste des utilisateurs
-$sql = "select pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
+$sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
 try {
     $sth = $dbh->prepare($sql);
     $sth->execute();
@@ -66,7 +66,7 @@ try {
             echo '<div class="data">' . $row["reponse"] . '</div>';
             echo '<div class="data">' . $row["datequestion"] . '</div>';
             echo '<div class="data">' . $row["datereponse"] . '</div>';
-            echo '<div class="data"> <a href="edit.php?id_user='.$row['iduser'].'">MODIFIER</a>  <a href="Sup.php?id_user='.$row['iduser'].'">SUPPRIMER</a></div>';
+            echo '<div class="data"> <a href="edit.php?id_faq='.$row['idfaq'].'">MODIFIER</a>  <a href="Sup.php?id_faq='.$row['idfaq'].'">SUPPRIMER</a></div>';
         }
 
 
