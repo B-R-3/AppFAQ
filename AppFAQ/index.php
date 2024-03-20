@@ -26,9 +26,9 @@
 
 
         <div class="click">
-            <a href="register.php"><button class="but" type="button">Inscription</button></a>
+            <a href="register.php"><button class="but-index" type="button">Inscription</button></a>
 
-            <a href="login.php"><button class="but" type="button">Connexion</button></a>
+            <a href="login.php"><button class="but-index" type="button">Connexion</button></a>
         </div>
     </div>
 

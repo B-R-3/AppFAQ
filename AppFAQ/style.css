@@ -31,13 +31,13 @@ h1 {
     height: 1.5em;
     color:  #6b6b6b;
 }
-
+/*--------------------------Boutton de l'index------------------------*/
 .click {
     display: flex;
     justify-content: center;
 }
 
-.but {
+.but-index {
     display: inline-block;
     border-radius: 30px;
     background-color: #e9e97d;
@@ -52,20 +52,32 @@ h1 {
     margin: 5px;
     text-decoration: underline;
 }
-.but:hover {
+.but-index:hover {
     transform: translateY(-20px);
     transition: 1.5s;
-    color: #650404;
+}
+/*-----------------boutton-general-------------------------*/
+.but-general {
+    border-radius: 30px;
+    border: none;
+    color: #6b6b6b;
+    text-align: center;
+    font-size: 28px;
 
-
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.but-general:hover {
+    color: #000099;;
+    transition: 1.5s;
 }
 a {
     text-decoration: none;
 }
 
 a:link {
-    color: #000;
-    border-bottom: 1px solid #ff0000;
+    color: #ffffff;
 }
 
 a:visited {
@@ -76,7 +88,7 @@ a:visited {
 a:hover {
     color: #e8df88;
     transition: .5s;
-    border-bottom: 1px solid #000099;
+    border-style: none;
 }
 /* navigation*/
 .logo a:hover {
@@ -118,21 +130,33 @@ nav ul {
     height: 670px;
 }
 .container {
-   
+    justify-content: center;
+    display: flex;
     flex-wrap: wrap;
     background-color: #627b81;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    height:400px;
+    width: 200px;
+    height:max-content;
+}
+form#formulaire{
+    margin: 0;
+}
+.cont{
+    justify-content: center;
 }
 #inscription{
     text-align: center
 }
-
-.container input[type="text"]{
-    width:25%;
+input[type="text"], [type="password"], [type="email"] {
+    background-color: #d8d7d7;
+}
+#ligue{
+    margin-top: 10px;
+}
+.container input[type="text"], textarea{
+   width: auto;
 }
 label{
    margin: auto;
@@ -145,19 +169,9 @@ label{
     width: 6.4em;
 }
 
-#v {
-    background-color: rgb(9, 162, 213);
-    border-radius: 35%;
-    
-}
 
-#f {
-    background-color: rgb(249, 115, 12);
-    border-radius: 35%;
-   
-}
 
-/* page de liste css grid*/
+/*------------------ page de liste css grid---------------*/
 #list
 {
     text-align: center;
@@ -199,7 +213,7 @@ label{
     padding: 10px;
     border: 1px solid #ccc;
 }
-/* partie Edit*/
+/* ----------------------partie Edit---------------------*/
 .bigcontainer{
     display: flex;
     justify-content: center;
@@ -212,10 +226,10 @@ label{
     flex-wrap: wrap;
     background-color: #627b81;
     border-radius: 10px;
-    padding: 20px;
+    padding: 70px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px;
-    height:300px;
+    width: max-content;
+
 }
 
 h1#tail{
@@ -236,15 +250,18 @@ form {
 
 .container input[type="text"],
 textarea {
-    width: 100%;
+    width: max-content;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     box-sizing: border-box;
 }
 .container textarea{
     height: 100px;
+    
+}
+textarea{
+    width: 200px;
 }
 
 button {
@@ -268,6 +285,7 @@ button:hover {
     
 }
 /* page add*/
+
 .enregistrer, input {
     
     background-color: #e8df88;
@@ -286,7 +304,6 @@ button:hover {
     outline: none;
     padding: 10px 16px;
     position: relative;
-    text-align: center;
     text-decoration: none;
     transition: color 100ms;
     vertical-align: baseline;
