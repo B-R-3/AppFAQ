@@ -31,7 +31,7 @@ if ($submit) {
     die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
   }
   $message = "$nb ligne(s) modifiée(s)";
-  header("Location; list.php");
+  header("Location: list.php");
 }
 
 
