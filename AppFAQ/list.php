@@ -16,7 +16,7 @@ $idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['iduser
 $idligue = isset($_SESSION['user']['idligue']) ? $_SESSION['user']['idligue'] : '';
 
 
-if ($idusertype == 1){
+if ($idusertype == 1 || $idusertype == 2 ){
     $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser and idligue = :idligue;";
     try {
         $sth = $dbh->prepare($sql);
