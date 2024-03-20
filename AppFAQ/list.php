@@ -72,7 +72,8 @@ try {
 
         ?>
 
-
+        <div class="button">
+        <a href="add.php"><input type="button" id="v" value="Ajouter"> <br></a>
 
     </div>
 
