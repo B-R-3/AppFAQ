@@ -1,3 +1,40 @@
+<?php
+
+include 'fonction.inc.php';
+// Connexion à la base
+session_start();
+
+$dbh = connexion();
+
+// Lecture du formulaire
+$question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
+$iduser = isset($_SESSION['user']['iduser']) ? $_SESSION['user']['iduser'] : '';
+
+
+$submit = isset($_POST['submit']);
+
+// Ajout dans la base
+if ($submit) {
+  $sql = "INSERT INTO faq(question,iduser) VALUES (:question,:iduser) ";
+  try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute(array(
+        ":question" => $question,
+        ":iduser"=> $iduser
+      ));
+    $nb = $sth->rowcount();
+  } catch (PDOException $ex) {
+    die("<p>Erreur lors de la requête SQL : " . $ex->getMessage() . "</p>");
+  }
+  $message = "$nb question(s) posée";
+} else {
+  $message = "Veuillez saisir un message SVP";
+}
+// Affichage
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +60,22 @@
     <br>
     <h1>M2L</h1>
     <h2>Ajouter une question</h2>
-    <form id="formulaire" action="contact.php">
-        <label for="message">message</label> <br>
-        <textarea name="message" id="message" cols="50" rows="10"> Poser une question!</textarea>
+    <div class="bigcontainer">
+    <form id="formulaire" action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
+        <label for="question">message</label> <br>
+        <input type="text" id="text" name="question" placeholder="Poser votre question"> <br>
 
+<div class="button">
+        <br><p><a href="list.php"><input type="submit" name="submit" id="v" value="Enregistrer"/></p>
+        <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a>
+    </div>
 
     </form>
+  
+    </div>
+    <br>
+    
+   
 
 </body>
 
