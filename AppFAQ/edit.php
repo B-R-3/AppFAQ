@@ -6,29 +6,32 @@ include 'fonction.inc.php';
 $dbh = connexion();
 
 // Récupère l'ID passé dans l'URL 
-$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
+$id_faq = isset ($_GET['id_faq']) ? $_GET['id_faq'] : '';
 
 
 // Lecture du formulaire
-$question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
-$reponse = isset($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
-$submit = isset($_POST['submit']);
+$question = isset ($_POST['question']) ? $_POST['question'] : ''; // obligatoire
+$reponse = isset ($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
+$submit = isset ($_POST['submit']);
 
 if ($submit) {
   // Modification dans la base
   $sql = "UPDATE faq SET question=:question, reponse=:reponse WHERE idfaq=:idfaq";
   try {
     $sth = $dbh->prepare($sql);
-    $sth->execute(array(
-      ":idfaq" => $id_faq,
-      ":question" => $question,
-      ":reponse" => $reponse,
-    ));
+    $sth->execute(
+      array(
+        ":idfaq" => $id_faq,
+        ":question" => $question,
+        ":reponse" => $reponse,
+      )
+    );
     $nb = $sth->rowcount();
   } catch (PDOException $e) {
-    die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+    die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
   }
   $message = "$nb ligne(s) modifiée(s)";
+  header("Location; list.php");
 }
 
 
@@ -37,12 +40,14 @@ $sql = "SELECT * FROM faq WHERE idfaq=:idfaq";
 
 try {
   $sth = $dbh->prepare($sql);
-  $sth->execute(array(
-    ":idfaq" => $id_faq
-  ));
+  $sth->execute(
+    array(
+      ":idfaq" => $id_faq
+    )
+  );
   $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-  die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
 }
 /*
   $id_faq = $row['idfaq'];
@@ -92,20 +97,22 @@ try {
 
 
 
-    <form id="formulaire" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER['PHP_SELF'] . "?id_faq=" . $id_faq; ?>" method="post">
       <label for="question">Ajoutez votre nouvelle question</label> <br>
-      <textarea name="text-area" id="question" cols="15" rows="10"></textarea>
+      <textarea name="question" id="question" cols="15" rows="10"></textarea>
 
       <label for="reponse">Ajoutez votre nouvelle reponse</label> <br>
-      <textarea name="text-area" id="question" cols="15" rows="10"></textarea>
+      <textarea name="reponse" id="reponse" cols="15" rows="10"></textarea>
   </div>
 
 
   <div class="clic">
-    <div class="enregistrer"><p><input type="submit" name="submit" id="v-edit" value="Enregistrer" /></p></div>
+    <div class="enregistrer">
+      <p><input type="submit" name="submit" id="v-edit" value="Enregistrer" /></p>
+    </div>
     <div class="back"><a href="list.php"><input type="button" id="f-edit" value="Annuler"> <br></a></div>
   </div>
- 
+
 
 </body>
 
