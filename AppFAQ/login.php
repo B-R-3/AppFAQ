@@ -28,7 +28,7 @@ if ($submit) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
     if (count($rows) == 1) {
-        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['user'] = $rows[0];
         header("Location: list.php");
         exit();
     } else {
