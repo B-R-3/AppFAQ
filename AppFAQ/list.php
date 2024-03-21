@@ -82,11 +82,12 @@ try {
             echo '<div class="data"> <a href="edit.php?id_faq=' . $row['idfaq'] . '">MODIFIER</a>  <a href="Sup.php?id_faq=' . $row['idfaq'] . '">SUPPRIMER</a></div>';
         }
     }
+   
 
 
     ?>
 
-    <div class="button">
+    <div class="but-general add">
         <a href="add.php"><input type="button" id="v" value="Ajouter"> <br></a>
 
     </div>

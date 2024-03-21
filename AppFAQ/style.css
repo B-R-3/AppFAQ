@@ -8,6 +8,8 @@
 
 body {
     background-image: url(image/pt.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 
 }
 
@@ -63,7 +65,6 @@ h1 {
     color: #6b6b6b;
     text-align: center;
     font-size: 28px;
-
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
@@ -72,16 +73,20 @@ h1 {
     color: #000099;;
     transition: 1.5s;
 }
+.but-general input{
+    background-color: #6b6b6b;
+    color: #b4d0dc;
+}
 a {
     text-decoration: none;
 }
 
 a:link {
-    color: #ffffff;
+    color: #6b6b6b;
 }
 
 a:visited {
-    color:  #e8df88;
+    color: #e8df88;
     border-bottom: 1px solid #b3b3b3;
 }
 
@@ -121,7 +126,7 @@ nav ul {
     padding-right: 20px;
 
 }
-/* connexion et inscription */
+/* -------------------connexion et inscription ------------------------------------------*/
 .contaiiner{
     display: flex;
     justify-content: center;
@@ -210,16 +215,26 @@ label{
 }
 
 .data {
+    display: flex;
+    justify-content: space-evenly;
     background-color: #f2f2f2;
     padding: 10px;
     border: 1px solid #ccc;
+}
+.data a{
+    color: #b4d0dc;
 }
 .color{
     background-color: #949494;
     padding: 10px;
     border: 1px solid #ccc;
 }
-/* ----------------------partie Edit---------------------*/
+/*-----button ajouter-------*/
+.but-general.add{
+    text-align: start;
+
+}
+/* ------------------------------------------------partie Edit----------------------------------------------*/
 .bigcontainer{
     display: flex;
     justify-content: center;
@@ -247,7 +262,13 @@ h1#tail{
     color: #e8df88;
     
 }
-
+.but-general.edit{
+    display: flex;
+    width: 190px;
+    height: fit-content;
+    padding-left: 30px;
+    justify-content: space-between;
+}
 form {
     margin-top: 20px;
    
@@ -293,8 +314,6 @@ button:hover {
 /* page add*/
 
 .enregistrer, input {
-    
-    background-color: #e8df88;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;

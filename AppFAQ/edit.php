@@ -6,13 +6,14 @@ include 'fonction.inc.php';
 $dbh = connexion();
 
 // Récupère l'ID passé dans l'URL 
-$id_faq = isset ($_GET['id_faq']) ? $_GET['id_faq'] : '';
+$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
 
 
 // Lecture du formulaire
-$question = isset ($_POST['question']) ? $_POST['question'] : ''; // obligatoire
-$reponse = isset ($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
-$submit = isset ($_POST['submit']);
+$question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
+$reponse = isset($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
+$submit = isset($_POST['submit']);
+$annuler = isset($_POST['annuler']);
 
 if ($submit) {
   // Modification dans la base
@@ -28,9 +29,12 @@ if ($submit) {
     );
     $nb = $sth->rowcount();
   } catch (PDOException $e) {
-    die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+    die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
   }
   $message = "$nb ligne(s) modifiée(s)";
+  header("Location: list.php");
+}
+if ($annuler) {
   header("Location: list.php");
 }
 
@@ -47,7 +51,7 @@ try {
   );
   $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-  die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
 }
 /*
   $id_faq = $row['idfaq'];
@@ -72,7 +76,7 @@ try {
 <body>
   <nav>
     <div class="logo">
-      <h1>AppFAQ/(admin)</h1>
+      <h1><a href="list.php">AppFAQ/(admin)</a> </h1>
     </div>
     <ul>
       <li><a href="deco.php">Déconnexion</a></li>
@@ -98,20 +102,20 @@ try {
 
 
     <form action="<?php echo $_SERVER['PHP_SELF'] . "?id_faq=" . $id_faq; ?>" method="post">
-      <label for="question">Ajoutez votre nouvelle question</label> <br>
-      <textarea name="question" id="question" cols="15" rows="10"></textarea>
+      <label for="question">Ajoutez votre nouvelle question</label> <br> <br>
+      <textarea name="question" id="question" cols="30" rows="10"></textarea> <br>
 
-      <label for="reponse">Ajoutez votre nouvelle reponse</label> <br>
-      <textarea name="reponse" id="reponse" cols="15" rows="10"></textarea>
+      <label for="reponse">Ajoutez votre nouvelle reponse</label> <br> <br>
+      <textarea name="reponse" id="reponse" cols="30" rows="10"></textarea>
   </div>
 
 
-  <div class="clic">
-    <div class="enregistrer">
-      <p><input type="submit" name="submit" id="v-edit" value="Enregistrer" /></p>
-    </div>
-    <div class="back"><a href="list.php"><input type="button" id="f-edit" value="Annuler"> <br></a></div>
+
+  <div class="but-general edit">
+    <input type="submit" name="submit" value="Modifier" />
+    <input type="submit" name="annuler" value="Annuler">
   </div>
+
 
 
 </body>
