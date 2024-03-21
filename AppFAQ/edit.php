@@ -58,12 +58,12 @@ try {
   $question  = $row['question'];
   $reponse  = $row['reponse'];
   $message = "Veuillez modifier la station SVP";
-  */
+*/
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -102,11 +102,11 @@ try {
 
 
     <form action="<?php echo $_SERVER['PHP_SELF'] . "?id_faq=" . $id_faq; ?>" method="post">
-      <label for="question">Ajoutez votre nouvelle question</label> <br> <br>
-      <textarea name="question" id="question" cols="30" rows="10"></textarea> <br>
+      <label for="question">Modifier la question</label> <br> <br>
+      <textarea name="question" id="question" cols="30" rows="10"><?php echo $row['question']; ?></textarea><br>
 
-      <label for="reponse">Ajoutez votre nouvelle reponse</label> <br> <br>
-      <textarea name="reponse" id="reponse" cols="30" rows="10"></textarea>
+      <label for="reponse">Modifier la réponse</label> <br> <br>
+      <textarea name="reponse" id="reponse" cols="30" rows="10"><?php echo $row['reponse']; ?></textarea>
   </div>
 
 
