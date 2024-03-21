@@ -11,6 +11,9 @@ if (!isset($_SESSION['pseudo'])) {
 
 // Connexion à la base de données
 $dbh = connexion();
+print_r($_SESSION);
+
+$idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
 
 // Liste des utilisateurs
 $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
@@ -48,31 +51,42 @@ try {
 
     <br>
     <h1 id="list"> Liste des messages</h1><br>
+    <?php if ($idusertype == 2 || $idusertype == 3) {
+        echo '<div class="question-table">';
+        echo '<div class="header">Auteur</div>';
+        echo '<div class="header">Question</div>';
+        echo '<div class="header">Réponse</div>';
+        echo '<div class="header">Date Reponse</div>';
+        echo '<div class="header">Date question</div>';
+        echo "<div class='header'>Actions</div>";
+    } else {
+        echo '<div class="question-table3">';
+        echo '<div class="header">Auteur</div>';
+        echo '<div class="header">Question</div>';
+        echo '<div class="header">Réponse</div>';
+        echo '<div class="header">Date Reponse</div>';
+        echo '<div class="header">Date question</div>';
+    }
 
-    <div class="question-table">
-        <div class="header">Auteur</div>
-        <div class="header">Question</div>
-        <div class="header">Réponse</div>
-        <div class="header">Date Reponse</div>
-        <div class="header">Date question</div>
-        <div class="header">Actions</div>
 
-        <?php
-        // Affiche les données récupérées dans la table
-        
-        foreach ($rows as $row) {
-            echo '<div class="data">' . $row["pseudo"] . '</div>';
-            echo '<div class="data">' . $row["question"] . '</div>';
-            echo '<div class="data">' . $row["reponse"] . '</div>';
-            echo '<div class="data">' . $row["datequestion"] . '</div>';
-            echo '<div class="data">' . $row["datereponse"] . '</div>';
-            echo '<div class="data"> <a href="edit.php?id_faq='.$row['idfaq'].'">MODIFIER</a>  <a href="Sup.php?id_faq='.$row['idfaq'].'">SUPPRIMER</a></div>';
+
+    // Affiche les données récupérées dans la table
+
+    foreach ($rows as $row) {
+        echo '<div class="data">' . $row["pseudo"] . '</div>';
+        echo '<div class="data">' . $row["question"] . '</div>';
+        echo '<div class="data">' . $row["reponse"] . '</div>';
+        echo '<div class="data">' . $row["datequestion"] . '</div>';
+        echo '<div class="data">' . $row["datereponse"] . '</div>';
+        if ($idusertype == 2 || $idusertype == 3) {
+            echo '<div class="data"> <a href="edit.php?id_faq=' . $row['idfaq'] . '">MODIFIER</a>  <a href="Sup.php?id_faq=' . $row['idfaq'] . '">SUPPRIMER</a></div>';
         }
+    }
 
 
-        ?>
+    ?>
 
-        <div class="button">
+    <div class="button">
         <a href="add.php"><input type="button" id="v" value="Ajouter"> <br></a>
 
     </div>

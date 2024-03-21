@@ -195,6 +195,12 @@ label{
     grid-template-columns: repeat(4, 1fr); /* Cinq colonnes de largeur égale */
     grid-gap: 1px; /* Espacement entre les cellules */
 }
+.question-table3 {
+    display: grid;
+    padding: 35px;
+    grid-template-columns: repeat(5, 1fr); /* Cinq colonnes de largeur égale */
+    grid-gap: 1px; /* Espacement entre les cellules */
+}
 
 .header {
     background-color: #333;
