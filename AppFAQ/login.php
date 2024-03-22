@@ -11,6 +11,7 @@ $message = "";
 $pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : '';
 $mdp = isset($_POST['mdp']) ? $_POST['mdp'] : '';
 $submit = isset($_POST['submit']);
+$annuler = isset($_POST['annuler']);
 
 // Vérifie le user
 if ($submit) {
@@ -35,10 +36,14 @@ if ($submit) {
         $message = "pseudo et/ou mdp invalide";
     }
 }
+
+if ($annuler) {
+    header("Location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -74,16 +79,16 @@ if ($submit) {
                     <label for="mdp">mot de passe</label> <br>
                     <input type="password" id="mdp" name="mdp" placeholder="password"> <br><br><br>
 
-                    <div class="button">
-                        <p><input type="submit" id="v" name="submit" value="Connexion" /></p>
-                        <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
+                    <div class="but-general">
+                        <input type="submit" name="submit" value="Connexion"/>
+                        <input type="submit" name="annuler" value="Annuler">
+
                     </div>
                 </div>
         </div>
-    </div>
-    </form>
+        </form>
 
-    <p></p>
+        <p></p>
 
 </body>
 

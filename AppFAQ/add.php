@@ -9,26 +9,30 @@ $dbh = connexion();
 // Lecture du formulaire
 $question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
 $iduser = isset($_SESSION['user']['iduser']) ? $_SESSION['user']['iduser'] : '';
-
-
 $submit = isset($_POST['submit']);
+$annuler = isset($_POST['annuler']);
 
 // Ajout dans la base
 if ($submit) {
-  $sql = "INSERT INTO faq(question,iduser) VALUES (:question,:iduser) ";
-  try {
-    $sth = $dbh->prepare($sql);
-    $sth->execute(array(
+  if ($question == !null) {
+    $sql = "INSERT INTO faq(question,iduser) VALUES (:question,:iduser) ";
+    try {
+      $sth = $dbh->prepare($sql);
+      $sth->execute(array(
         ":question" => $question,
-        ":iduser"=> $iduser
+        ":iduser" => $iduser
       ));
-    $nb = $sth->rowcount();
-  } catch (PDOException $ex) {
-    die("<p>Erreur lors de la requête SQL : " . $ex->getMessage() . "</p>");
+      $nb = $sth->rowcount();
+    } catch (PDOException $ex) {
+      die("<p>Erreur lors de la requête SQL : " . $ex->getMessage() . "</p>");
+    }
+    header("Location: list.php");
   }
-  $message = "$nb question(s) posée";
 } else {
-  $message = "Veuillez saisir un message SVP";
+  $message = "Veuillez saisir une question";
+}
+if ($annuler) {
+  header("Location: list.php");
 }
 // Affichage
 ?>
@@ -36,46 +40,47 @@ if ($submit) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>AppFAQ</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>AppFAQ</title>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <h1>AppFAQ</h1>
-        </div>
-        <ul>
-            <li><a href="deco.php">Déconnexion</a></li>
+  <nav>
+    <div class="logo">
+      <h1> <a href="list.php"> AppFAQ </a></h1>
+    </div>
+    <ul>
+      <li><a href="deco.php">Déconnexion</a></li>
 
-        </ul>
-    </nav>
+    </ul>
+  </nav>
 
-    <br>
-    <h1>M2L</h1>
-    <h2>Ajouter une question</h2>
-    <div class="bigcontainer">
+  <br>
+  .
+  <h1 id="list">Ajouter une question</h1>
+
+  <div class="bigcontainer">
     <form id="formulaire" action=<?php echo $_SERVER['PHP_SELF']; ?> method="post">
-        <label for="question">message</label> <br>
-        <input type="text" id="text" name="question" placeholder="Poser votre question"> <br>
+      <label for="question"></label> <br>
+      <input type="text" id="text" name="question" placeholder="Poser votre question"> <br>
 
-<div class="button">
-        <br><p><a href="list.php"><input type="submit" name="submit" id="v" value="Enregistrer"/></p>
-        <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a>
-    </div>
+      <div class="but-general">
+        <input type="submit" name="submit" value="Soumettre" />
+        <input type="submit" name="annuler" value="Annuler">
 
+      </div>
     </form>
-  
-    </div>
-    <br>
-    
-   
+
+  </div>
+  <br>
+
+
 
 </body>
 
