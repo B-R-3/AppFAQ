@@ -15,20 +15,19 @@ $annuler = isset($_POST['annuler']);
 
 // Vérifie le user
 if ($submit) {
-    $sql = "select * from user where pseudo=:pseudo and mdp=:mdp";
+    $sql = "select * from user where pseudo=:pseudo ";
     try {
         $sth = $dbh->prepare($sql);
         $sth->execute(
             array(
-                ':pseudo' => $pseudo,
-                ':mdp' => $mdp
+                ':pseudo' => $pseudo,   
             )
         );
         $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
-    if (count($rows) == 1) {
+    if (count($rows) == 1 && password_verify($mdp,$rows[0]["mdp"])) { 
         $_SESSION['user'] = $rows[0];
         header("Location: list.php");
         exit();

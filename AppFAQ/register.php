@@ -13,6 +13,7 @@ $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
 $ligue = isset($_POST['ligue']) ? $_POST['ligue'] : '';
 $submit = isset($_POST['submit']);
 $annuler = isset($_POST['annuler']);
+$_hash = password_hash($mdp, PASSWORD_DEFAULT);
 
 // Ajoute le user
 if ($submit) {
@@ -23,7 +24,7 @@ if ($submit) {
             $sth->execute(
                 array(
                     ':pseudo' => $pseudo,
-                    ':mdp' => $mdp,
+                    ':mdp' => $_hash,
                     ':mail' => $mail,
                     ':idusertype' => 1,
                     ':idligue' => $ligue

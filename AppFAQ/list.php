@@ -15,21 +15,29 @@ print_r($_SESSION);
 
 $idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
 
-$idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
 $idligue = isset($_SESSION['user']['idligue']) ? $_SESSION['user']['idligue'] : '';
+$sql1 = 'select libligue from ligue where idligue =:idligue';
+try {
+    $sth = $dbh->prepare($sql1);
+    $sth->execute(array(
+        ":idligue" => $idligue
+    ));
+    $rowz = $sth->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $ex) {
+    die("Erreur lors de la requête SQL : " . $ex->getMessage());
+}
 
-
-if ($idusertype == 1 || $idusertype == 2 ){
+if ($idusertype == 1 || $idusertype == 2) {
     $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser and idligue = :idligue;";
     try {
         $sth = $dbh->prepare($sql);
         $sth->execute(array(
-            ":idligue" => $idligue));
+            ":idligue" => $idligue
+        ));
         $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $ex) {
         die("Erreur lors de la requête SQL : " . $ex->getMessage());
     }
-    
 } else {
     // Liste des utilisateurs
     $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
@@ -59,6 +67,10 @@ if ($idusertype == 1 || $idusertype == 2 ){
         <div class="logo">
             <h1><a href="list.php">AppFAQ</a></h1>
         </div>
+
+        <?php 
+         echo "<p class = 'name'> Bienvenue à " .$_SESSION['user']['pseudo']."</p>";
+        ?>
         <ul>
             <li><a href="deco.php">Déconnexion</a></li>
 
@@ -66,7 +78,17 @@ if ($idusertype == 1 || $idusertype == 2 ){
     </nav>
 
     <br>
-    <h1 id="list"> Liste des messages</h1><br>
+    <?php
+    if ($idusertype == 3) {
+    ?> <h1 id="list"> Liste des messages de toute les ligues</h1><br>
+    <?php
+    } else { ?>
+        <h1 id="list"> Liste des messages de la ligue <?php echo $rowz["libligue"] ?> </h1><br>
+    <?php
+    }
+
+    ?>
+
     <?php if ($idusertype == 2 || $idusertype == 3) {
         echo '<div class="question-table">';
         echo '<div class="header">Auteur</div>';
@@ -98,7 +120,7 @@ if ($idusertype == 1 || $idusertype == 2 ){
             echo '<div class="data"> <a href="edit.php?id_faq=' . $row['idfaq'] . '">MODIFIER</a>  <a href="Sup.php?id_faq=' . $row['idfaq'] . '">SUPPRIMER</a></div>';
         }
     }
-   
+
 
 
     ?>
