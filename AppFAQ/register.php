@@ -12,6 +12,7 @@ $mdp = isset($_POST['mdp']) ? $_POST['mdp'] : '';
 $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
 $ligue = isset($_POST['ligue']) ? $_POST['ligue'] : '';
 $submit = isset($_POST['submit']);
+$annuler = isset($_POST['annuler']);
 
 // Ajoute le user
 if ($submit) {
@@ -36,11 +37,14 @@ if ($submit) {
         $message = "veuillez remplir tous les champs";
     }
 }
+if ($annuler) {
+    header("Location: index.php");
+}
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -64,9 +68,6 @@ if ($submit) {
     <br>
 
     <div class="bigcontainer">
-
-
-
         <div class="container">
             <form id="formulaire" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="cont">
@@ -82,7 +83,7 @@ if ($submit) {
                     <input type="email" id="e-mail" name="mail" placeholder="abc@exemple.com"> <br>
 
 
-                    <h3> choisissez une ligue</h3>
+                    <h3 id="ligue"> choisissez une ligue</h3>
                     <select name="ligue">
                         <option selected="yes" value="1">Football</option>
                         <option value="3">Volley</option>
@@ -90,16 +91,18 @@ if ($submit) {
                         <option value="4">Toutes les ligues</option>
 
                     </select><br><br>
-                    <div class="button">
-                        <p><input type="submit" name="submit" id="v" value="Enregistrer" /></p>
-                        <a href="index.php"><input type="button" id="f" value="Annuler"> <br></a>
-                        <?php
-                        echo $message = "veuillez remplir tous les champs";
-                        ?>
+                    <div class="but-general">
+                        <input type="submit" name="submit" value="Connexion" />
+                        <input type="submit" name="annuler" value="Annuler">
+
                     </div>
+                    <?php
+                    echo $message = "*Veuillez remplir tous les champs";
+                    ?>
                 </div>
-            </form>
         </div>
+        </form>
+    </div>
     </div>
 
 </body>

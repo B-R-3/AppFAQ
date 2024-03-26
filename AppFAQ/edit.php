@@ -38,6 +38,9 @@ if ($submit) {
   $message = "$nb ligne(s) modifiée(s)";
   header("Location: list.php");
 }
+if ($annuler) {
+  header("Location: list.php");
+}
 
 
 // Affichage de l'enregistrement courant dans le formulaire
@@ -59,12 +62,12 @@ try {
   $question  = $row['question'];
   $reponse  = $row['reponse'];
   $message = "Veuillez modifier la station SVP";
-  */
+*/
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -77,7 +80,7 @@ try {
 <body>
   <nav>
     <div class="logo">
-      <h1>AppFAQ/(admin)</h1>
+      <h1><a href="list.php">AppFAQ/(admin)</a> </h1>
     </div>
     <ul>
       <li><a href="deco.php">Déconnexion</a></li>
@@ -103,20 +106,20 @@ try {
 
 
     <form action="<?php echo $_SERVER['PHP_SELF'] . "?id_faq=" . $id_faq; ?>" method="post">
-      <label for="question">Ajoutez votre nouvelle question</label> <br>
-      <textarea name="question" id="question" cols="15" rows="10"></textarea>
+      <label for="question">Modifier la question</label> <br> <br>
+      <textarea name="question" id="question" cols="30" rows="10"><?php echo $row['question']; ?></textarea><br>
 
-      <label for="reponse">Ajoutez votre nouvelle reponse</label> <br>
-      <textarea name="reponse" id="reponse" cols="15" rows="10"></textarea>
+      <label for="reponse">Modifier la réponse</label> <br> <br>
+      <textarea name="reponse" id="reponse" cols="30" rows="10"><?php echo $row['reponse']; ?></textarea>
   </div>
 
 
-  <div class="clic">
-    <div class="enregistrer">
-      <p><input type="submit" name="submit" id="v-edit" value="Enregistrer" /></p>
-    </div>
-    <div class="back"><a href="list.php"><input type="button" id="f-edit" value="Annuler"> <br></a></div>
+
+  <div class="but-general edit">
+    <input type="submit" name="submit" value="Modifier" />
+    <input type="submit" name="annuler" value="Annuler">
   </div>
+
 
 
 </body>

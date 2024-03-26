@@ -15,16 +15,32 @@ print_r($_SESSION);
 
 $idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
 
-// Liste des utilisateurs
-$sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
-try {
-    $sth = $dbh->prepare($sql);
-    $sth->execute();
-    $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $ex) {
-    die("Erreur lors de la requête SQL : " . $ex->getMessage());
-}
+$idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
+$idligue = isset($_SESSION['user']['idligue']) ? $_SESSION['user']['idligue'] : '';
 
+
+if ($idusertype == 1 || $idusertype == 2 ){
+    $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser and idligue = :idligue;";
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute(array(
+            ":idligue" => $idligue));
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
+    
+} else {
+    // Liste des utilisateurs
+    $sql = "select idfaq,pseudo,question,reponse,datequestion, datereponse  from faq as F, user as U where F.iduser = U.iduser";
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $ex) {
+        die("Erreur lors de la requête SQL : " . $ex->getMessage());
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,11 +98,12 @@ try {
             echo '<div class="data"> <a href="edit.php?id_faq=' . $row['idfaq'] . '">MODIFIER</a>  <a href="Sup.php?id_faq=' . $row['idfaq'] . '">SUPPRIMER</a></div>';
         }
     }
+   
 
 
     ?>
 
-    <div class="button">
+    <div class="but-general add">
         <a href="add.php"><input type="button" id="v" value="Ajouter"> <br></a>
 
     </div>

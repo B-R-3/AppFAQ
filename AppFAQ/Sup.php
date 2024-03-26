@@ -20,6 +20,7 @@ $id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
 $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
 $question = isset($_POST['question']) ? $_POST['question'] : '';
 $submit = isset($_POST['submit']);
+$annuler = isset($_POST['annuler']);
 
 $sql = "select * from faq where idfaq=:idfaq";
 try {
@@ -46,11 +47,14 @@ if ($submit) {
     }
     header("Location: list.php");
 }
+if ($annuler) {
+    header("Location: list.php");
+}
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -63,7 +67,7 @@ if ($submit) {
 <body>
     <nav>
         <div class="logo">
-            <h1>AppFAQ (admin)</h1>
+            <h1><a href="list.php">AppFAQ (admin)</a> </h1>
         </div>
         <ul>
             <li><a href="deco.php">Déconnexion</a></li>
@@ -71,7 +75,7 @@ if ($submit) {
     </nav>
 
     <br>
-    <h1>M2L</h1>
+    <h1 id="list">Supression de message</h1>
 
     <div class="question-table2">
         <div class="header">Question</div>
@@ -94,11 +98,11 @@ if ($submit) {
 
 
     </div>
-    <form action="<?php echo $_SERVER['PHP_SELF']."?id_faq=".$id_faq; ?>" method="post">
-        <div class="button">
-            <p><input type="submit" id="v" name="submit" value="Supprimer" />
-                <a href="list.php"><input type="button" id="f" value="Annuler"> <br></a>
-            </p>
+    <form action="<?php echo $_SERVER['PHP_SELF'] . "?id_faq=" . $id_faq; ?>" method="post">
+        <div class="but-general">
+            <input type="submit" name="submit" value="Supprimer" />
+            <input type="submit" name="annuler" value="Annuler">
+        </div>
     </form>
 
 
