@@ -45,5 +45,6 @@ santa cruz
 
 
 
--Le.git
-à completer ........
+-Le.git est un outils indispensabe pour assurer le bon fonctionnement du site web, les updates sont associés à nos omptes Github , il faut donc effectuer l'installation de ce dernier.
+-Visual Studio Code 
+
