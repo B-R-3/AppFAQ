@@ -52,7 +52,6 @@ h1 {
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
-    text-decoration: underline;
 }
 .but-index:hover {
     transform: translateY(-20px);
