@@ -3,7 +3,7 @@ include "fonction.inc.php";
 session_start();
 
 // Redirige vers la page de connexion si on n'est pas connecté
-if (!isset($_SESSION['pseudo'])) {
+if (!isset($_SESSION['user'])) {
     header("Location: index.php");
     exit();
 }
