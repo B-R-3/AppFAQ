@@ -21,7 +21,7 @@ $submit = isset($_POST['submit']);
 
 if ($submit) {
   // Modification dans la base
-  $sql = "UPDATE faq SET question=:question, reponse=:reponse WHERE idfaq=:idfaq";
+  $sql = "UPDATE faq SET question=:question, reponse=:reponse, datereponse=current_timestamp() WHERE idfaq=:idfaq";
   try {
     $sth = $dbh->prepare($sql);
     $sth->execute(
