@@ -1,0 +1,206 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 26 mars 2024 à 17:01
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `appfaq`
+--
+CREATE DATABASE IF NOT EXISTS `appfaq` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `appfaq`;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE `faq` (
+  `idfaq` bigint(11) NOT NULL,
+  `question` text NOT NULL,
+  `reponse` text NOT NULL,
+  `datequestion` datetime NOT NULL DEFAULT current_timestamp(),
+  `datereponse` datetime DEFAULT NULL,
+  `iduser` bigint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `faq`
+--
+
+INSERT INTO `faq` (`idfaq`, `question`, `reponse`, `datequestion`, `datereponse`, `iduser`) VALUES
+(33, 'bonjour, où se déroule le prochain match ?', 'En Italie, à Monza', '2024-03-26 16:44:19', '2024-03-26 16:59:21', 10),
+(34, 'A quel heure commence le match ?', 'A 18h00 heure local.\r\n', '2024-03-26 16:44:51', '2024-03-26 16:59:54', 10),
+(35, 'Tu prends le ballon ?', 'oui', '2024-03-26 16:53:55', '2024-03-26 16:55:33', 11),
+(36, 'Tu te mets sur quel terrain ?', 'Le terrain 2,  il y a déjà un match sur le terrain 1.\r\n', '2024-03-26 16:55:10', '2024-03-26 16:56:17', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ligue`
+--
+
+DROP TABLE IF EXISTS `ligue`;
+CREATE TABLE `ligue` (
+  `idligue` bigint(11) NOT NULL,
+  `libligue` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `ligue`
+--
+
+INSERT INTO `ligue` (`idligue`, `libligue`) VALUES
+(1, 'Ligue de football'),
+(2, 'Ligue de basket'),
+(3, 'Ligue de volley'),
+(4, 'Ligue de handball');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `iduser` bigint(11) NOT NULL,
+  `pseudo` varchar(50) NOT NULL,
+  `mdp` varchar(255) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `idusertype` bigint(11) NOT NULL,
+  `idligue` bigint(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`iduser`, `pseudo`, `mdp`, `mail`, `idusertype`, `idligue`) VALUES
+(1, 'Brian31', 'super', 'alexandre.roques@limayrac.fr', 3, 2),
+(3, 'Moha La squale', 'Santa monica', 'brandon.molinaserna@limayrac.fr', 1, 1),
+(4, 'Tony Hawk', 'santa cruz', 'adrien.cachoux@limayrac.fr', 2, 3),
+(5, 'Tony Hawk', 'santa cruz', 'adrien.cachoux@limayrac.fr', 2, 3),
+(6, 'bernard', 'tapis', 'b@gmail.com', 1, 1),
+(10, 'Brian', '$2y$10$/NPDw/ha1UJtGe/DmYakeO2xx8tREkE75C3lRt3pJTAvC2OwcmC5.', 'alex@gmail.com', 3, 1),
+(11, 'Br', '$2y$10$rqsb9buYCi/CYj.dCqzDou17tYuziWU.2Bml1p/y2BP6M5Yk9hknC', 'br@gmail.com', 2, 3),
+(12, 'Adrien', '$2y$10$0ZVHRzdD1MRO0Rn6csQ7veCbDmYHPeSgfnzIMQ4j4PEUPB0v2mHbe', 'ad@gmal.com', 1, 2),
+(13, 'Lewis Hamilton', '$2y$10$MpBYgLMVtKaP.aG.aeJYQOcKge0jhlxlXPASqoEy/A05.cwKwDZNe', 'merc@gmail.com', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `usertype`
+--
+
+DROP TABLE IF EXISTS `usertype`;
+CREATE TABLE `usertype` (
+  `idusertype` bigint(11) NOT NULL,
+  `libusertype` varchar(50) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `usertype`
+--
+
+INSERT INTO `usertype` (`idusertype`, `libusertype`, `description`) VALUES
+(1, 'Utilisateur', 'Il peut lire et voir les informations mais ne peut rien modifier'),
+(2, 'Administrateur', 'peut s’inscrire, se connecter, afficher la liste des messages, répondre à une question,\r\nmodifier et supprimer un message. Il est associé à une et une seule ligue. Il ne peut gérer que les messages de\r\nSA ligue'),
+(3, 'Super Administrateur', 'a les mêmes droits qu\'un administrateur à ceci près qu\'il peut intervenir que sur les\r\nmessages de TOUTES les ligues');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`idfaq`),
+  ADD KEY `fk_iduser` (`iduser`);
+
+--
+-- Index pour la table `ligue`
+--
+ALTER TABLE `ligue`
+  ADD PRIMARY KEY (`idligue`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`iduser`),
+  ADD KEY `fk_idusertype` (`idusertype`),
+  ADD KEY `fk_idligue` (`idligue`);
+
+--
+-- Index pour la table `usertype`
+--
+ALTER TABLE `usertype`
+  ADD PRIMARY KEY (`idusertype`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `idfaq` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT pour la table `ligue`
+--
+ALTER TABLE `ligue`
+  MODIFY `idligue` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `iduser` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `usertype`
+--
+ALTER TABLE `usertype`
+  MODIFY `idusertype` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `faq`
+--
+ALTER TABLE `faq`
+  ADD CONSTRAINT `fk_iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`);
+
+--
+-- Contraintes pour la table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `fk_idligue` FOREIGN KEY (`idligue`) REFERENCES `ligue` (`idligue`),
+  ADD CONSTRAINT `fk_idusertype` FOREIGN KEY (`idusertype`) REFERENCES `usertype` (`idusertype`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
