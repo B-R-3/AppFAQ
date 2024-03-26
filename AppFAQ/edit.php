@@ -5,6 +5,8 @@ if (!isset($_SESSION['user'])) {
   header("Location: index.php");
   exit();
 }
+
+
 include 'fonction.inc.php';
 // Connexion à la base
 $dbh = connexion();
