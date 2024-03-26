@@ -4,6 +4,10 @@ include 'fonction.inc.php';
 // Connexion à la base
 session_start();
 
+if (!isset($_SESSION['user'])) {
+  header("Location: index.php");
+  exit();
+}
 $dbh = connexion();
 
 // Lecture du formulaire

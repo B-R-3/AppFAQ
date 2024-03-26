@@ -1,18 +1,23 @@
 <?php
+session_start();
 
-
+if (!isset($_SESSION['user'])) {
+  header("Location: index.php");
+  exit();
+}
 include 'fonction.inc.php';
 // Connexion à la base
 $dbh = connexion();
 
+
 // Récupère l'ID passé dans l'URL 
-$id_faq = isset ($_GET['id_faq']) ? $_GET['id_faq'] : '';
+$id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
 
 
 // Lecture du formulaire
-$question = isset ($_POST['question']) ? $_POST['question'] : ''; // obligatoire
-$reponse = isset ($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
-$submit = isset ($_POST['submit']);
+$question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
+$reponse = isset($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
+$submit = isset($_POST['submit']);
 
 if ($submit) {
   // Modification dans la base
@@ -28,7 +33,7 @@ if ($submit) {
     );
     $nb = $sth->rowcount();
   } catch (PDOException $e) {
-    die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+    die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
   }
   $message = "$nb ligne(s) modifiée(s)";
   header("Location: list.php");
@@ -47,7 +52,7 @@ try {
   );
   $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-  die ("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
+  die("<p>Erreur lors de la requête SQL : " . $e->getMessage() . "</p>");
 }
 /*
   $id_faq = $row['idfaq'];

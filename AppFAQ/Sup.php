@@ -2,6 +2,10 @@
 include "fonction.inc.php";
 session_start();
 
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php");
+    exit();
+}
 
 // Connexion à la base de données
 $dbh = connexion();
@@ -28,6 +32,8 @@ try {
 
 
 // Vérifie le user
+
+
 if ($submit) {
     $sql = "delete from faq where  idfaq=:idfaq";
     try {
