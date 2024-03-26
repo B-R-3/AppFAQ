@@ -20,9 +20,11 @@ Une fois sur la page d'accueil, veuillez créer un compte en fournissant un pseu
 - CACHOUX Adrien
 - ROQUES Alexandre
 - MOLINA SERNA Brandon
+- 
 ## login/password
--Brian31/super
--br/oui
+- Brian31 / super
+- br / oui
+  
 à compléter...
 
 
