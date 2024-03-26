@@ -1,9 +1,14 @@
 <?php
+session_start();
 
-
+if (!isset($_SESSION['user'])) {
+  header("Location: index.php");
+  exit();
+}
 include 'fonction.inc.php';
 // Connexion à la base
 $dbh = connexion();
+
 
 // Récupère l'ID passé dans l'URL 
 $id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
@@ -13,7 +18,6 @@ $id_faq = isset($_GET['id_faq']) ? $_GET['id_faq'] : '';
 $question = isset($_POST['question']) ? $_POST['question'] : ''; // obligatoire
 $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : ''; // obligatoire
 $submit = isset($_POST['submit']);
-$annuler = isset($_POST['annuler']);
 
 if ($submit) {
   // Modification dans la base
