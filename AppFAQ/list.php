@@ -11,7 +11,6 @@ if (!isset($_SESSION['user'])) {
 
 // Connexion à la base de données
 $dbh = connexion();
-print_r($_SESSION);
 
 $idusertype = isset($_SESSION['user']['idusertype']) ? $_SESSION['user']['idusertype'] : '';
 
@@ -68,8 +67,8 @@ if ($idusertype == 1 || $idusertype == 2) {
             <h1><a href="list.php">AppFAQ</a></h1>
         </div>
 
-        <?php 
-         echo "<p class = 'name'> Bienvenue à " .$_SESSION['user']['pseudo']."</p>";
+        <?php
+        echo "<p class = 'name'> Bienvenue à " . $_SESSION['user']['pseudo'] . "</p>";
         ?>
         <ul>
             <li><a href="deco.php">Déconnexion</a></li>
@@ -94,16 +93,16 @@ if ($idusertype == 1 || $idusertype == 2) {
         echo '<div class="header">Auteur</div>';
         echo '<div class="header">Question</div>';
         echo '<div class="header">Réponse</div>';
-        echo '<div class="header">Date Reponse</div>';
         echo '<div class="header">Date question</div>';
+        echo '<div class="header">Date Reponse</div>';
         echo "<div class='header'>Actions</div>";
     } else {
         echo '<div class="question-table3">';
         echo '<div class="header">Auteur</div>';
         echo '<div class="header">Question</div>';
         echo '<div class="header">Réponse</div>';
-        echo '<div class="header">Date Reponse</div>';
         echo '<div class="header">Date question</div>';
+        echo '<div class="header">Date Reponse</div>';
     }
 
 
