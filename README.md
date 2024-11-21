@@ -7,10 +7,15 @@ AppFAQ est un site web de foire aux questions liées à la maison des ligues. Il
 Pour installer le projet AppFAQ, suivez ces étapes :
 
 1. Créez les modèles logiques et conceptuels de données pour mettre en place une structure solide de la base de données.
+   
 2. Créez l'IHM accompagné d'un sitemap pour avoir une maquette du site et savoir comment naviguer une fois dessus.
+   
 3. Créez un dossier "projets" dans le répertoire du serveur web local (par exemple, xampp\htdocs\) et placez-y le dossier du projet AppFAQ.
+   
 4. Effectuez une synchronisation avec Git (ce qui comprend l'installation de Git).
+ 
 5. Importez le script SQL "script base de donnée AppFAQ.txt".
+ 
 6. Sur Visual Studio Code, faites un "< Git: Clone>" puis sélectionnez le dossier AppFAQ pour obtenir la dernière version du site AppFAQ.
 
 ## Utilisation
